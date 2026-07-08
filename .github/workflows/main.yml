@@ -49,7 +49,7 @@ jobs:
       - name: Build
         run: |
           cd /home/runner/android-kernel
-          ./build_bramble-gki.sh
+          ./build_redbull-gki.sh
           
       - name: Upload kernel
         if: success()
