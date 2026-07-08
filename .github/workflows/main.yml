@@ -17,7 +17,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
 
       # Runs a single command using the runners shell
       - name: Preparing
@@ -45,6 +45,7 @@ jobs:
           cp /home/runner/kernelsu_bramble/stat.c /home/runner/android-kernel/private/msm-google/fs/stat.c
           cp /home/runner/kernelsu_bramble/input.c /home/runner/android-kernel/private/msm-google/drivers/input/input.c
           cd /home/runner/android-kernel
+          
       - name: Build
         run: |
           cd /home/runner/android-kernel
@@ -52,7 +53,7 @@ jobs:
           
       - name: Upload kernel
         if: success()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Image.lz4-dtb
           path: "/home/runner/android-kernel/out/android-msm-pixel-4.19/dist/Image.lz4-dtb"
